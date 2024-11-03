@@ -1,101 +1,164 @@
-import { useState } from 'react'
-
+import React, { useState } from 'react';
+import { ArrowLeft, Bug, FileText, AlertCircle, CheckCircle, Circle } from 'lucide-react';
 
 export default function BugTracking() {
   const [bugs, setBugs] = useState([
     { id: 1, title: 'Login not working', description: 'Users unable to log in', status: 'Open' },
     { id: 2, title: 'Slow loading times', description: 'Pages take too long to load', status: 'In Progress' },
-  ])
+  ]);
 
-  const [newBug, setNewBug] = useState({ title: '', description: '' })
+  const [newBug, setNewBug] = useState({ title: '', description: '' });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (e) => {
-    setNewBug({ ...newBug, [e.target.name]: e.target.value })
-  }
+    setNewBug({ ...newBug, [e.target.name]: e.target.value });
+  };
 
-  const handleAddBug = (e) => {
-    e.preventDefault()
+  const handleAddBug = async (e) => {
+    e.preventDefault();
     if (newBug.title && newBug.description) {
-      setBugs([...bugs, { id: bugs.length + 1, ...newBug, status: 'Open' }])
-      setNewBug({ title: '', description: '' })
+      setIsLoading(true);
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setBugs([...bugs, { id: bugs.length + 1, ...newBug, status: 'Open' }]);
+      setNewBug({ title: '', description: '' });
+      setIsLoading(false);
     }
-  }
+  };
 
   const handleStatusChange = (id, newStatus) => {
-    setBugs(bugs.map((bug) => (bug.id === id ? { ...bug, status: newStatus } : bug)))
-  }
+    setBugs(bugs.map((bug) => (bug.id === id ? { ...bug, status: newStatus } : bug)));
+  };
+
+  const getStatusIcon = (status) => {
+    switch (status) {
+      case 'Open':
+        return <AlertCircle className="w-4 h-4" />;
+      case 'In Progress':
+        return <Circle className="w-4 h-4" />;
+      case 'Resolved':
+        return <CheckCircle className="w-4 h-4" />;
+      default:
+        return null;
+    }
+  };
+
+  const getStatusColor = (status) => {
+    switch (status) {
+      case 'Open':
+        return 'text-red-400 bg-red-400/10';
+      case 'In Progress':
+        return 'text-yellow-400 bg-yellow-400/10';
+      case 'Resolved':
+        return 'text-emerald-400 bg-emerald-400/10';
+      default:
+        return '';
+    }
+  };
 
   return (
-    <div className="flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl">
-        <h2 className="text-2xl font-bold mb-6 text-center">Bug Tracking</h2>
-        <ul className="space-y-4 mb-6">
-          {bugs.map((bug) => (
-            <li key={bug.id} className="border p-4 rounded-md">
-              <h3 className="font-semibold">{bug.title}</h3>
-              <p className="text-sm text-gray-600">{bug.description}</p>
-              <div className="mt-2 flex items-center justify-between">
-                <span
-                  className={`px-2 py-1 text-xs font-semibold rounded-full ${
-                    bug.status === 'Open'
-                      ? 'bg-red-100 text-red-800'
-                      : bug.status === 'In Progress'
-                      ? 'bg-yellow-100 text-yellow-800'
-                      : 'bg-green-100 text-green-800'
-                  }`}
-                >
-                  {bug.status}
-                </span>
-                <select
-                  value={bug.status}
-                  onChange={(e) => handleStatusChange(bug.id, e.target.value )}
-                  className="text-sm border-gray-300 rounded-md"
-                >
-                  <option value="Open">Open</option>
-                  <option value="In Progress">In Progress</option>
-                  <option value="Resolved">Resolved</option>
-                </select>
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white flex flex-col">
+      {/* Header with Back Button */}
+      <div className="p-6">
+        <a href="/dashboard" className="inline-flex items-center text-sm text-gray-400 hover:text-emerald-400 transition-colors">
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Back to Dashboard
+        </a>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-3xl">
+          {/* Logo */}
+          <div className="text-center mb-8">
+            <span className="text-3xl font-thin tracking-wider">
+              NOVA<span className="text-emerald-400">.</span>
+            </span>
+          </div>
+
+          {/* Bug Tracking Container */}
+          <div className="bg-black/30 border border-gray-800 p-8 backdrop-blur-lg">
+            <h2 className="text-2xl font-thin tracking-wider text-center mb-8">
+              Bug Tracking
+            </h2>
+
+            {/* Bug List */}
+            <div className="space-y-4 mb-8">
+              {bugs.map((bug) => (
+                <div key={bug.id} className="border border-gray-800 bg-black/20 p-4 rounded-lg">
+                  <h3 className="font-medium text-lg">{bug.title}</h3>
+                  <p className="text-sm text-gray-400 mt-1">{bug.description}</p>
+                  <div className="mt-4 flex items-center justify-between">
+                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(bug.status)}`}>
+                      {getStatusIcon(bug.status)}
+                      <span className="ml-2">{bug.status}</span>
+                    </span>
+                    <select
+                      value={bug.status}
+                      onChange={(e) => handleStatusChange(bug.id, e.target.value)}
+                      className="bg-black/30 border border-gray-800 text-sm rounded-lg px-3 py-1.5 text-white focus:border-emerald-400 focus:ring-0 focus:outline-none"
+                    >
+                      <option value="Open">Open</option>
+                      <option value="In Progress">In Progress</option>
+                      <option value="Resolved">Resolved</option>
+                    </select>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Add Bug Form */}
+            <form onSubmit={handleAddBug} className="space-y-6">
+              {/* Bug Title Input */}
+              <div className="space-y-2">
+                <label className="block text-sm tracking-wider text-gray-400">
+                  BUG TITLE
+                </label>
+                <div className="relative">
+                  <Bug className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
+                  <input
+                    type="text"
+                    name="title"
+                    required
+                    className="w-full bg-black/30 border border-gray-800 py-3 pl-12 pr-4 text-white placeholder-gray-500 focus:border-emerald-400 focus:ring-0 focus:outline-none transition-colors"
+                    placeholder="Enter bug title"
+                    value={newBug.title}
+                    onChange={handleInputChange}
+                  />
+                </div>
               </div>
-            </li>
-          ))}
-        </ul>
-        <form onSubmit={handleAddBug} className="space-y-4">
-          <div>
-            <label htmlFor="title" className="block text-sm font-medium text-gray-700">
-              Bug Title
-            </label>
-            <input
-              type="text"
-              id="title"
-              name="title"
-              required
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-              onChange={handleInputChange}
-              value={newBug.title}
-            />
+
+              {/* Bug Description Input */}
+              <div className="space-y-2">
+                <label className="block text-sm tracking-wider text-gray-400">
+                  DESCRIPTION
+                </label>
+                <div className="relative">
+                  <FileText className="absolute left-3 top-3 w-5 h-5 text-gray-500" />
+                  <textarea
+                    name="description"
+                    rows={3}
+                    required
+                    className="w-full bg-black/30 border border-gray-800 py-3 pl-12 pr-4 text-white placeholder-gray-500 focus:border-emerald-400 focus:ring-0 focus:outline-none transition-colors"
+                    placeholder="Enter bug description"
+                    value={newBug.description}
+                    onChange={handleInputChange}
+                  ></textarea>
+                </div>
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full bg-emerald-400 text-black py-3 text-sm tracking-wider hover:bg-emerald-300 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isLoading ? 'ADDING BUG...' : 'ADD BUG'}
+              </button>
+            </form>
           </div>
-          <div>
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700">
-              Bug Description
-            </label>
-            <textarea
-              id="description"
-              name="description"
-              rows={3}
-              required
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-              onChange={handleInputChange}
-              value={newBug.description}
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            Add Bug
-          </button>
-        </form>
+        </div>
       </div>
     </div>
-  )
+  );
 }

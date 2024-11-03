@@ -8,6 +8,13 @@ import PricingPage from "./components/features/PricingPage"
 import RequestDemoPage from "./components/features/RequestDemoPage"
 import SolutionsPage from "./components/features/SolutionsPage"
 import LandingPage from "./components/home/LandingPage"
+import HotNova from "./components/landingpage/HotNova"
+import Maison from "./components/landingpage/Maison"
+import MaisonPro from "./components/landingpage/MaisonPro"
+import NovaPro from "./components/landingpage/NovaPro"
+import ProjectPro from "./components/landingpage/ProjectPro"
+import TaskFlow from "./components/landingpage/TaskFlow"
+import UltraNova from "./components/landingpage/UltraNova"
 import AddProject from "./components/pages/AddProject"
 import BugTracking from "./components/pages/BugTracking"
 import DeleteProject from "./components/pages/DeleteProject"
@@ -23,8 +30,16 @@ function App() {
 
   return (
     <>    
+        <NovaPro/>
+
+    <MaisonPro/>
+    <Maison/>
+    <HotNova/>
+    <UltraNova/>
+    <TaskFlow/>
+    <ProjectPro/>
     
-      <Newdashboard/>
+      {/* <Newdashboard/> */}
       <AddProject/>
     <BugTracking/>
     <DeleteProject/>

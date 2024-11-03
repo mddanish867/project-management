@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   BarChart2, Calendar, Users, Settings, Bug,
   Search, Bell, ChevronDown, Layout, Book,
@@ -6,7 +6,7 @@ import {
   Filter, Plus, Grid, MoreHorizontal, Trash2,
   ArrowUp, ArrowDown, Edit, GitPullRequest,
   PlayCircle, PauseCircle, XCircle, BookOpen,
-  GitCommit, Workflow,ArrowRight 
+  GitCommit, Workflow, ArrowRight 
 } from 'lucide-react';
 
 const Dashboard = () => {
@@ -15,6 +15,20 @@ const Dashboard = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalType, setModalType] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const sidebarRef = useRef(null);
+
+  // Handle clicks outside sidebar
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target) && 
+          !event.target.closest('button[aria-label="Toggle sidebar"]')) {
+        setSidebarOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   // Sample data states
   const [bugs, setBugs] = useState([
@@ -111,7 +125,6 @@ const Dashboard = () => {
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 />
               </div>
-              {/* Add more fields based on type */}
               <div className="flex justify-end space-x-4">
                 <button
                   type="button"
@@ -136,7 +149,10 @@ const Dashboard = () => {
 
   // Sidebar Component
   const Sidebar = ({ isOpen }) => (
-    <div className={`fixed inset-y-0 left-0 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:relative lg:translate-x-0 transition-transform duration-300 ease-in-out lg:block w-64 bg-black/80 backdrop-blur-lg border-r border-gray-800 z-30`}>
+    <div 
+      ref={sidebarRef}
+      className={`fixed inset-y-0 left-0 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:relative lg:translate-x-0 transition-transform duration-300 ease-in-out lg:block w-64 bg-black/80 backdrop-blur-lg border-r border-gray-800 z-30`}
+    >
       <div className="p-6">
         <div className="text-2xl font-thin tracking-wider mb-8">
           NOVA<span className="text-emerald-400">.</span>
@@ -151,7 +167,10 @@ const Dashboard = () => {
           ].map((item) => (
             <button
               key={item.id}
-              onClick={() => setActiveSection(item.id)}
+              onClick={() => {
+                setActiveSection(item.id);
+                setSidebarOpen(false);
+              }}
               className={`flex items-center space-x-3 w-full px-4 py-2 rounded-md transition-colors ${
                 activeSection === item.id ? 'bg-emerald-400/20 text-emerald-400' : 'text-gray-400 hover:text-white'
               }`}
@@ -173,6 +192,7 @@ const Dashboard = () => {
           <div className="flex justify-between h-16 items-center">
             <div className="flex items-center">
               <button
+                aria-label="Toggle sidebar"
                 onClick={() => setSidebarOpen(!sidebarOpen)}
                 className="lg:hidden p-2 rounded-md text-gray-400 hover:text-white"
               >

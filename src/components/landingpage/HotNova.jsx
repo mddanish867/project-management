@@ -208,7 +208,7 @@ const HotNova = () => {
               HOT NOVA ·
             </div>
             <div className="text-[10px] tracking-[0.3em] text-white/40 font-light">
-              CRAFTED WITH PRECISION · MMXXIV
+              CRAFTED WITH PRECISION · {new Date().getFullYear()}
             </div>
           </div>
         </div>

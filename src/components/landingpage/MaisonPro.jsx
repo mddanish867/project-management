@@ -118,7 +118,7 @@ const MaisonPro = () => {
       <nav className="fixed w-full z-40 bg-black/5 backdrop-blur-[2px]">
         <div className="max-w-5xl mx-auto px-8">
           <div className="h-20 flex items-center justify-between">
-            <div className="text-xs font-light">M A I S O N</div>
+            <div className="text-lg font-semibold">N O V A P R O</div>
             
             <div className="hidden md:flex items-center space-x-12">
               {sections.map((section, index) => (
@@ -127,8 +127,8 @@ const MaisonPro = () => {
                   href={`#${section.title.toLowerCase()}`}
                   className="group flex items-center space-x-2 opacity-60 hover:opacity-100 transition-all duration-700"
                 >
-                  <span className="text-xs font-light">{section.title}</span>
-                  <span className="transform scale-0 group-hover:scale-100 transition-transform duration-700">
+                  <span className="text-sm font-normal">{section.title}</span>
+                  <span className="font-semibold transform scale-0 group-hover:scale-100 transition-transform duration-700">
                     {section.icon}
                   </span>
                 </a>
@@ -152,18 +152,18 @@ const MaisonPro = () => {
       <div className="relative min-h-screen flex items-center justify-center">
         <div className="max-w-4xl mx-auto px-8 text-center z-10">
           <div className="space-y-8">
-            <div className="text-xs font-light opacity-60">EST. MMXXIV</div>
+            <div className="text-sm font-light opacity-60">EST. MMXXIV</div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-thin leading-tight">
-              Artistry of
-              <span className="block">Excellence</span>
+              Artistry of Excellence
+              <span className="block"></span>
             </h1>
-            <p className="text-sm text-white/50 font-light max-w-md mx-auto">
+            <p className="text-sm text-white/50 font-normal max-w-md mx-auto">
               Where vision transcends the ordinary, 
               creating moments of pure sophistication.
             </p>
             <div>
               <button className="group relative px-6 py-3">
-                <span className="text-xs font-light flex items-center">
+                <span className="text-md font-normal flex items-center">
                   experience
                   <ArrowUpRight className="w-3 h-3 ml-2 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-500" />
                 </span>
@@ -181,12 +181,12 @@ const MaisonPro = () => {
             {features.map((feature, index) => (
               <div key={index} className="group">
                 <div className={`relative p-8 border ${themes[theme].border} hover:bg-white/[0.02] transition-colors duration-700`}>
-                  <div className="absolute -left-2 -top-2 text-xs font-light opacity-20">
+                  <div className="absolute -left-2 -top-2 text-sm font-normal opacity-40">
                     {String(index + 1).padStart(2, '0')}
                   </div>
                   <div className="space-y-4">
-                    <h3 className="text-sm font-light">{feature.title}</h3>
-                    <p className="text-xs text-white/40 font-light">
+                    <h3 className="text-md font-normal">{feature.title}</h3>
+                    <p className="text-sm text-white/60 font-light">
                       {feature.description}
                     </p>
                     <div className={`h-px ${themes[theme].accent} transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-1000`} />
@@ -201,10 +201,10 @@ const MaisonPro = () => {
       {/* Quote Section */}
       <div className={`relative py-32 border-t ${themes[theme].border}`}>
         <div className="max-w-3xl mx-auto px-8 text-center">
-          <p className="text-xl md:text-2xl font-thin leading-relaxed mb-6">
+          <p className="text-xl md:text-2xl font-normal leading-relaxed mb-6">
             "The epitome of digital refinement"
           </p>
-          <div className="text-xs text-white/40 font-light">
+          <div className="text-sm text-white/60 font-normal">
             VOGUE DIGITAL
           </div>
         </div>
@@ -214,11 +214,11 @@ const MaisonPro = () => {
       <footer className={`relative py-12 border-t ${themes[theme].border}`}>
         <div className="max-w-5xl mx-auto px-8">
           <div className="flex flex-col items-center space-y-4">
-            <div className="text-xs font-light opacity-60">
-              MAISON · PARIS
+            <div className="text-sm font-semibold opacity-60">
+              NOVARPRO ·
             </div>
-            <div className="text-[10px] text-white/30 font-light">
-              crafted with precision
+            <div className="text-[15px] text-white/50 font-light">
+              crafted with love - {new Date().getFullYear()}
             </div>
           </div>
         </div>

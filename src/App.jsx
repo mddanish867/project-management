@@ -28,7 +28,6 @@ function App() {
     <>    
       
 
-    <UltraNova/>
     <TaskFlow/>
     <ProjectPro/>
     

@@ -8,7 +8,6 @@ import PricingPage from "./components/features/PricingPage"
 import RequestDemoPage from "./components/features/RequestDemoPage"
 import SolutionsPage from "./components/features/SolutionsPage"
 import LandingPage from "./components/home/LandingPage"
-import ProjectPro from "./components/landingpage/ProjectPro"
 import AddProject from "./components/pages/AddProject"
 import BugTracking from "./components/pages/BugTracking"
 import DeleteProject from "./components/pages/DeleteProject"
@@ -26,8 +25,8 @@ function App() {
     <>    
       
 
-    <ProjectPro/>
-    
+      <LandingPage/>
+
       {/* <Newdashboard/> */}
       <AddProject/>
     <BugTracking/>
@@ -41,7 +40,6 @@ function App() {
     <UserProfile/>
       <Register/>
 <Login/>
-<LandingPage/>
 <LearnMorePage/>
 <RequestDemoPage/>
 <PricingPage/>

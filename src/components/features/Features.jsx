@@ -1,7 +1,12 @@
 import React from 'react';
 import { BarChart2, Globe, Zap, Shield, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function FeaturesPage() {
+  const navigate = useNavigate();
+  const handleRequestDemo = () => {
+    navigate("/request-demo")
+  }
   const features = [
     {
       title: "Executive Dashboard",
@@ -62,7 +67,9 @@ export default function FeaturesPage() {
           <h2 className="text-3xl font-thin tracking-wider mb-8">
             Ready to Experience NOVA?
           </h2>
-          <button className="px-12 py-4 bg-emerald-400 text-black text-sm tracking-wider hover:bg-emerald-300 transition-colors duration-300 flex items-center justify-center mx-auto group">
+          <button 
+          onClick={handleRequestDemo}
+          className="px-12 py-4 bg-emerald-400 text-black text-sm tracking-wider hover:bg-emerald-300 transition-colors duration-300 flex items-center justify-center mx-auto group">
             REQUEST A DEMO
             <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
           </button>

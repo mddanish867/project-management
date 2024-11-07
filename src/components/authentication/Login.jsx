@@ -157,6 +157,12 @@ const Login = () => {
                 </div>
               </div>
 
+{/* Login with OTP Link */}
+<div className="text-right">
+                <a href="/login-otp" className="text-sm text-emerald-400 hover:text-emerald-300 transition-colors">
+                  Login with OTP
+                </a>
+              </div>
               {/* Forgot Password Link */}
               <div className="text-right">
                 <a href="/forgot-password" className="text-sm text-emerald-400 hover:text-emerald-300 transition-colors">

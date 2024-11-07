@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export default function ForgotPassword() {
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -9,6 +11,9 @@ export default function ForgotPassword() {
     console.log('Sending reset link to:', email)
   }
 
+  const handleSendResetLink = () => {
+    navigate("/reset-password")
+  }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
@@ -28,6 +33,7 @@ export default function ForgotPassword() {
             />
           </div>
           <button
+          onClick={handleSendResetLink}
             type="submit"
             className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >

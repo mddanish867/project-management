@@ -1,7 +1,12 @@
 import React from 'react';
 import { Shield, Zap, Users, Globe, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function EnterprisePage() {
+  const navigate = useNavigate();
+  const handleContactSales = () => {
+    navigate("/request-demo")
+  }
   const enterpriseFeatures = [
     {
       title: "Advanced Security",
@@ -62,7 +67,9 @@ export default function EnterprisePage() {
           <h2 className="text-3xl font-thin tracking-wider mb-8">
             Elevate Your Enterprise
           </h2>
-          <button className="px-12 py-4 bg-emerald-400 text-black text-sm tracking-wider hover:bg-emerald-300 transition-colors duration-300 flex items-center justify-center mx-auto group">
+          <button 
+          onClick={handleContactSales}
+          className="px-12 py-4 bg-emerald-400 text-black text-sm tracking-wider hover:bg-emerald-300 transition-colors duration-300 flex items-center justify-center mx-auto group">
             CONTACT SALES
             <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
           </button>

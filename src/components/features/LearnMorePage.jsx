@@ -1,7 +1,12 @@
 import React from 'react';
 import { Book, Video, FileText, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function LearnMorePage() {
+  const navigate = useNavigate();
+  const handleContactSupport = () => {
+    navigate("/request-demo")
+  }
   const resources = [
     {
       title: "Documentation",
@@ -61,7 +66,9 @@ export default function LearnMorePage() {
             <h2 className="text-3xl font-thin tracking-wider mb-8">
               Need More Information?
             </h2>
-            <button className="px-12 py-4 bg-emerald-400 text-black text-sm tracking-wider hover:bg-emerald-300 transition-colors duration-300 flex items-center justify-center mx-auto group">
+            <button 
+            onClick={handleContactSupport}
+            className="px-12 py-4 bg-emerald-400 text-black text-sm tracking-wider hover:bg-emerald-300 transition-colors duration-300 flex items-center justify-center mx-auto group">
               CONTACT SUPPORT
               <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </button>

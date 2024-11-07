@@ -9,8 +9,6 @@ import RequestDemoPage from "./components/features/RequestDemoPage"
 import SolutionsPage from "./components/features/SolutionsPage"
 import LandingPage from "./components/home/LandingPage"
 import ProjectPro from "./components/landingpage/ProjectPro"
-import TaskFlow from "./components/landingpage/TaskFlow"
-import UltraNova from "./components/landingpage/UltraNova"
 import AddProject from "./components/pages/AddProject"
 import BugTracking from "./components/pages/BugTracking"
 import DeleteProject from "./components/pages/DeleteProject"
@@ -28,7 +26,6 @@ function App() {
     <>    
       
 
-    <TaskFlow/>
     <ProjectPro/>
     
       {/* <Newdashboard/> */}

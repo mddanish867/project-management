@@ -34,7 +34,7 @@ const Navbar = () => {
             <div className="flex items-center">
               <span className="text-2xl font-thin tracking-wider">
                 <a href="/">
-                NOVA<span className="text-emerald-400">.</span>
+                ScaffoldX<span className="text-emerald-400 text-3xl">.</span>
                 </a>
               </span>
             </div>

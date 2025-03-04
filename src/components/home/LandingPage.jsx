@@ -69,20 +69,20 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-5xl md:text-7xl font-thin tracking-tight mb-8">
-              Elevate Your
+            Launch Your Next
+            Project in 
               <span className="block mt-2 font-light text-emerald-400">
-                Project Excellence
+              One Click!
               </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed mb-12">
-              Experience unprecedented sophistication in project management.
-              Designed for visionary leaders and exceptional teams.
+            No manual setup, just select, click, and code! Get your development environment ready in seconds.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <button 
               onClick={handleRequestDemo}
               className="px-12 py-4 bg-emerald-400 text-black text-sm tracking-wider hover:bg-emerald-300 transition-colors duration-300">
-                REQUEST DEMO
+                Get Started
               </button>
               <button 
               onClick={handleLearnMore}

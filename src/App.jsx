@@ -39,6 +39,7 @@ function App() {
           <Route path="/solutions" element={<SolutionsPage/>}/>
           <Route path="/enterprise" element={<EnterprisePage/>}/>
           <Route path="/learn-more" element={<LearnMorePage/>}/>
+          <Route path="/pricing" element={<PricingPage/>}/>
 
           </Route>
           <Route path="/login" element={<Login/>}/>
@@ -52,11 +53,11 @@ function App() {
         </Routes>
       </Router>
 
-      <PricingPage/> 
+      
 
 
       {/* <Newdashboard/> */}
-      <AddProject/>
+      {/* <AddProject/>
     <BugTracking/>
     <DeleteProject/>
     <ModifyProject/>
@@ -65,7 +66,7 @@ function App() {
     <TeamMembers/>
     <UserStoryTracking/>
     <AccountSettings/>
-    <UserProfile/>
+    <UserProfile/> */}
 
 
     </>

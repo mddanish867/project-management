@@ -59,6 +59,12 @@ const Navbar = () => {
               >
                 ENTERPRISE
               </a>
+              <a
+                href="/pricing"
+                className="text-sm font-light tracking-wider hover:text-emerald-400 transition-colors"
+              >
+                PRICING
+              </a>
               <button
               onClick={handleGetAccess}
               className="border border-emerald-400 text-emerald-400 px-6 py-2 text-sm tracking-wider hover:bg-emerald-400 hover:text-black transition-all duration-300">
@@ -83,14 +89,20 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black backdrop-blur-lg">
             <div className="px-4 py-6 space-y-4">
-              <a href="#features" className="block text-sm tracking-wider">
+              <a href="/features" className="block text-sm tracking-wider">
                 FEATURES
               </a>
-              <a href="#solutions" className="block text-sm tracking-wider">
+              <a href="/solutions" className="block text-sm tracking-wider">
                 SOLUTIONS
               </a>
-              <a href="#enterprise" className="block text-sm tracking-wider">
+              <a href="/enterprise" className="block text-sm tracking-wider">
                 ENTERPRISE
+              </a>
+              <a
+                href="/pricing"
+                className="text-sm font-light tracking-wider hover:text-emerald-400 transition-colors"
+              >
+                PRICING
               </a>
             </div>
           </div>

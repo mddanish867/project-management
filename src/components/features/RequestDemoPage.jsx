@@ -9,10 +9,9 @@ export default function RequestDemoPage() {
           <div className="text-center mb-12">
             <h1 className="text-5xl md:text-7xl font-thin tracking-tight mb-8">
               Experience
-              <span className="block mt-2 font-light text-emerald-400">NOVA</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed mb-12">
-              Discover how NOVA can transform your project management. Request a personalized demo today.
+              Discover how ScaffoldX can transform your project management. Request a personalized demo today.
             </p>
           </div>
 

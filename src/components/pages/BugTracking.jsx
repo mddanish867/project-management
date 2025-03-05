@@ -71,8 +71,10 @@ export default function BugTracking() {
         <div className="w-full max-w-3xl">
           {/* Logo */}
           <div className="text-center mb-8">
-            <span className="text-3xl font-thin tracking-wider">
-              NOVA<span className="text-emerald-400">.</span>
+            <span className="text-2xl font-thin tracking-wider">
+              <a href="/">
+                ScaffoldX<span className="text-emerald-400 text-3xl">.</span>
+              </a>
             </span>
           </div>
 

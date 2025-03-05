@@ -89,7 +89,7 @@ const HotNova = () => {
         <div className="max-w-screen-xl mx-auto px-12">
           <div className="h-32 flex items-center justify-between">
             <div className="text-lg tracking-[0.5em] font-semibold">
-              NOVA
+              ScaffoldX
             </div>
             
             <div className="hidden md:flex items-center space-x-24">

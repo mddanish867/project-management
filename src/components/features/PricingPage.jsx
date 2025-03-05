@@ -48,7 +48,7 @@ export default function PricingPage() {
               <span className="block mt-2 font-light text-emerald-400">Pricing</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed mb-12 max-w-3xl mx-auto">
-              Choose the perfect plan to elevate your project management capabilities with NOVA.
+              Choose the perfect plan to elevate your project management capabilities with ScaffoldX.
             </p>
           </div>
 

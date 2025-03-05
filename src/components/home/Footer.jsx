@@ -8,10 +8,14 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="text-2xl font-thin tracking-wider mb-6">
-              NOVA<span className="text-emerald-400">.</span>
+            <span className="text-2xl font-thin tracking-wider">
+              <a href="/">
+                ScaffoldX<span className="text-emerald-400 text-3xl">.</span>
+              </a>
+            </span>
             </div>
             <div className="text-sm text-gray-400">
-              © {new Date().getFullYear()} NOVA. All rights reserved.
+              © {new Date().getFullYear()} ScaffoldX. All rights reserved.
             </div>
           </div>
         </div>

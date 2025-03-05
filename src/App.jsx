@@ -1,6 +1,7 @@
 import Login from "./components/authentication/Login"
 import Register from "./components/authentication/Register"
 import Newdashboard from "./components/dashboard/newdashboard"
+import Dashboard from "./components/dashboard/Dashboard"
 import EnterprisePage from "./components/features/EnterprisePage"
 import FeaturesPage from "./components/features/Features"
 import LearnMorePage from "./components/features/LearnMorePage"
@@ -45,6 +46,8 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword/>}/>
           <Route path="/reset-password" element={<ResetPassword/>}/>
           <Route path="/login-otp" element={<LoginOTP/>}/>
+          <Route path="/newdashboard" element={<Newdashboard/>}/>
+          <Route path="/dashboard" element={<Dashboard/>}/>
 
         </Routes>
       </Router>

@@ -155,7 +155,7 @@ const LandingPage = () => {
           <div className="max-w-3xl mx-auto text-center">
             <Award className="w-12 h-12 text-emerald-400 mx-auto mb-8" />
             <p className="text-2xl font-light italic leading-relaxed mb-8">
-              "NOVA has revolutionized how we manage global projects. The level
+              "ScaffoldX has revolutionized how we manage global projects. The level
               of sophistication and attention to detail is unmatched in the
               industry."
             </p>

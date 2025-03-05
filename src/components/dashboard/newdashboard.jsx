@@ -6,7 +6,7 @@ import {
   Filter, Plus, Grid, MoreHorizontal, Trash2,
   ArrowUp, ArrowDown, Edit, GitPullRequest,
   PlayCircle, PauseCircle, XCircle, BookOpen,
-  GitCommit, Workflow, ArrowRight 
+  GitCommit, Workflow, ArrowRight
 } from 'lucide-react';
 
 const Dashboard = () => {
@@ -20,8 +20,8 @@ const Dashboard = () => {
   // Handle clicks outside sidebar
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (sidebarRef.current && !sidebarRef.current.contains(event.target) && 
-          !event.target.closest('button[aria-label="Toggle sidebar"]')) {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target) &&
+        !event.target.closest('button[aria-label="Toggle sidebar"]')) {
         setSidebarOpen(false);
       }
     };
@@ -78,7 +78,7 @@ const Dashboard = () => {
 
   // CRUD Operations
   const handleCreate = (type, data) => {
-    switch(type) {
+    switch (type) {
       case 'bug':
         setBugs([...bugs, { id: bugs.length + 1, ...data }]);
         break;
@@ -91,7 +91,7 @@ const Dashboard = () => {
   };
 
   const handleDelete = (type, id) => {
-    switch(type) {
+    switch (type) {
       case 'bug':
         setBugs(bugs.filter(bug => bug.id !== id));
         break;
@@ -105,7 +105,7 @@ const Dashboard = () => {
   // Modal Component
   const Modal = ({ type, onClose, onSubmit }) => {
     const [formData, setFormData] = useState({});
-    
+
     return (
       <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
         <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 w-full max-w-md">
@@ -149,14 +149,12 @@ const Dashboard = () => {
 
   // Sidebar Component
   const Sidebar = ({ isOpen }) => (
-    <div 
+    <div
       ref={sidebarRef}
       className={`fixed inset-y-0 left-0 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:relative lg:translate-x-0 transition-transform duration-300 ease-in-out lg:block w-64 bg-black/80 backdrop-blur-lg border-r border-gray-800 z-30`}
     >
       <div className="p-6">
-        <div className="text-2xl font-thin tracking-wider mb-8">
-          NOVA<span className="text-emerald-400">.</span>
-        </div>
+        
         <nav className="space-y-2">
           {[
             { name: 'Overview', icon: Layout, id: 'overview' },
@@ -171,9 +169,8 @@ const Dashboard = () => {
                 setActiveSection(item.id);
                 setSidebarOpen(false);
               }}
-              className={`flex items-center space-x-3 w-full px-4 py-2 rounded-md transition-colors ${
-                activeSection === item.id ? 'bg-emerald-400/20 text-emerald-400' : 'text-gray-400 hover:text-white'
-              }`}
+              className={`flex items-center space-x-3 w-full px-4 py-2 rounded-md transition-colors ${activeSection === item.id ? 'bg-emerald-400/20 text-emerald-400' : 'text-gray-400 hover:text-white'
+                }`}
             >
               <item.icon className="w-5 h-5" />
               <span>{item.name}</span>
@@ -188,48 +185,57 @@ const Dashboard = () => {
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white">
       {/* Top Navigation */}
       <nav className="fixed top-0 left-0 right-0 border-b border-gray-800 bg-black/80 backdrop-blur-lg z-20">
-        <div className="px-4 sm:px-6">
-          <div className="flex justify-between h-16 items-center">
-            <div className="flex items-center">
-              <button
-                aria-label="Toggle sidebar"
-                onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="lg:hidden p-2 rounded-md text-gray-400 hover:text-white"
-              >
-                <List className="w-6 h-6" />
-              </button>
-              
-              <div className="ml-4 relative hidden sm:block">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  className="w-64 bg-gray-900/50 border border-gray-800 rounded-md pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-emerald-400/50"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-4">
-              <button className="relative">
-                <Bell className="w-5 h-5 text-gray-400 hover:text-emerald-400 transition-colors" />
-                <span className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-400 rounded-full" />
-              </button>
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 rounded-full bg-emerald-400/20 flex items-center justify-center">
-                  <span className="text-sm text-emerald-400">AK</span>
-                </div>
-                <ChevronDown className="w-4 h-4 text-gray-400" />
-              </div>
-            </div>
-          </div>
+  <div className="px-4 sm:px-6">
+    <div className="flex justify-between h-16 items-center">
+      <div className="flex items-center">
+        <button
+          aria-label="Toggle sidebar"
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+          className="lg:hidden p-2 rounded-md text-gray-400 hover:text-white"
+        >
+          <List className="w-6 h-6" />
+        </button>
+        <div className="ml-4"> 
+          <span className="text-2xl font-thin tracking-wider">
+            <a href="/">
+              ScaffoldX<span className="text-emerald-400 text-3xl">.</span>
+            </a>
+          </span>
         </div>
-      </nav>
+      </div>
+      
+      <div className="absolute left-1/2 transform -translate-x-1/2">
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <input
+            type="text"
+            placeholder="Search..."
+            className="w-96 bg-gray-900/50 border border-gray-800 rounded-md pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-emerald-400/50"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
+      </div>
+      
+      <div className="flex items-center space-x-4">
+        <button className="relative">
+          <Bell className="w-5 h-5 text-gray-400 hover:text-emerald-400 transition-colors" />
+          <span className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-400 rounded-full" />
+        </button>
+        <div className="flex items-center space-x-2">
+          <div className="w-8 h-8 rounded-full bg-emerald-400/20 flex items-center justify-center">
+            <span className="text-sm text-emerald-400">AK</span>
+          </div>
+          <ChevronDown className="w-4 h-4 text-gray-400" />
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
 
       <div className="flex h-screen pt-16">
         <Sidebar isOpen={sidebarOpen} />
-        
+
         <main className="flex-1 overflow-auto p-6">
           {/* Content Header */}
           <div className="flex justify-between items-center mb-6">

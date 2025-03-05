@@ -38,7 +38,11 @@ export default function Dashboard() {
         } fixed inset-y-0 left-0 z-30 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}
       >
         <div className="flex items-center justify-center h-16 border-b">
-          <h1 className="text-xl font-semibold text-gray-800">Project Dashboard</h1>
+          <span className="text-2xl font-thin tracking-wider">
+            <a href="/">
+              ScaffoldX<span className="text-emerald-400 text-3xl">.</span>
+            </a>
+          </span>
         </div>
         <nav className="mt-5">
           {menuItems.map((item) => (

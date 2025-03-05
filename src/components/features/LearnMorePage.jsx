@@ -16,13 +16,13 @@ export default function LearnMorePage() {
     },
     {
       title: "Video Tutorials",
-      description: "Step-by-step video guides for NOVA features",
+      description: "Step-by-step video guides for ScaffoldX features",
       icon: <Video className="w-12 h-12 text-emerald-400" />,
       link: "#"
     },
     {
       title: "Case Studies",
-      description: "Real-world success stories from NOVA clients",
+      description: "Real-world success stories from ScaffoldX clients",
       icon: <FileText className="w-12 h-12 text-emerald-400" />,
       link: "#"
     }
@@ -35,10 +35,10 @@ export default function LearnMorePage() {
           <div className="text-center mb-20">
             <h1 className="text-5xl md:text-7xl font-thin tracking-tight mb-8">
               Discover
-              <span className="block mt-2 font-light text-emerald-400">NOVA</span>
+              <span className="block mt-2 font-light text-emerald-400">ScaffoldX</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed mb-12 max-w-3xl mx-auto">
-              Explore our comprehensive resources to master NOVA and unlock its full potential for your projects.
+              Explore our comprehensive resources to master ScaffoldX and unlock its full potential for your projects.
             </p>
           </div>
 

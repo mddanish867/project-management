@@ -15,7 +15,7 @@ export default function EnterprisePage() {
     },
     {
       title: "Scalable Performance",
-      description: "Seamlessly scale NOVA to meet your growing enterprise needs.",
+      description: "Seamlessly scale ScaffoldX to meet your growing enterprise needs.",
       icon: <Zap className="w-12 h-12 text-emerald-400" />
     },
     {
@@ -25,7 +25,7 @@ export default function EnterprisePage() {
     },
     {
       title: "Global Deployment",
-      description: "Deploy NOVA across your global offices with ease.",
+      description: "Deploy ScaffoldX across your global offices with ease.",
       icon: <Globe className="w-12 h-12 text-emerald-400" />
     }
   ];
@@ -40,7 +40,7 @@ export default function EnterprisePage() {
               <span className="block mt-2 font-light text-emerald-400">Excellence</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed mb-12 max-w-3xl mx-auto">
-              Empower your enterprise with NOVA's comprehensive suite of tools designed for large-scale operations.
+              Empower your enterprise with ScaffoldX's comprehensive suite of tools designed for large-scale operations.
             </p>
           </div>
 

@@ -15,7 +15,7 @@ export default function SolutionsPage() {
     },
     {
       title: "Enterprise Integration",
-      description: "Seamlessly integrate NOVA with your existing enterprise systems.",
+      description: "Seamlessly integrate  with your existing enterprise systems.",
       icon: <Building className="w-12 h-12 text-emerald-400" />
     }
   ];
@@ -30,7 +30,7 @@ export default function SolutionsPage() {
               <span className="block mt-2 font-light text-emerald-400">Solutions</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed mb-12 max-w-3xl mx-auto">
-              Discover how NOVA adapts to your unique business needs, providing targeted solutions for every challenge.
+              Discover how ScaffoldX adapts to your unique business needs, providing targeted solutions for every challenge.
             </p>
           </div>
 

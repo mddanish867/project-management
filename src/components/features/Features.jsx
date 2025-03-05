@@ -40,7 +40,7 @@ export default function FeaturesPage() {
               <span className="block mt-2 font-light text-emerald-400">Capabilities</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed mb-12 max-w-3xl mx-auto">
-              Discover the sophisticated features that set NOVA apart in project management excellence.
+              Discover the sophisticated features that set ScaffoldX apart in project management excellence.
             </p>
           </div>
 
@@ -65,7 +65,7 @@ export default function FeaturesPage() {
       <div className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-thin tracking-wider mb-8">
-            Ready to Experience NOVA?
+            Ready to Experience ScaffoldX?
           </h2>
           <button 
           onClick={handleRequestDemo}

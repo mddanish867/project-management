@@ -98,7 +98,7 @@ const Register = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState(1); // 1: Details, 2: Verification
   const [showPassword, setShowPassword] = useState(false);
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -131,8 +131,10 @@ const Register = () => {
         <div className="w-full max-w-md">
           {/* Logo */}
           <div className="text-center mb-8">
-            <span className="text-3xl font-thin tracking-wider">
-              NOVA<span className="text-emerald-400">.</span>
+            <span className="text-2xl font-thin tracking-wider">
+              <a href="/">
+                ScaffoldX<span className="text-emerald-400 text-3xl">.</span>
+              </a>
             </span>
           </div>
 

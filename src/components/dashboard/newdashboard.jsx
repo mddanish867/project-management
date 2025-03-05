@@ -191,20 +191,32 @@ const Dashboard = () => {
         <button
           aria-label="Toggle sidebar"
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="lg:hidden p-2 rounded-md text-gray-400 hover:text-white"
+          className="lg:hidden p-2 rounded-md text-gray-400 hover:text-white mr-4"
         >
           <List className="w-6 h-6" />
         </button>
-        <div className="ml-4"> 
-          <span className="text-2xl font-thin tracking-wider">
-            <a href="/">
-              ScaffoldX<span className="text-emerald-400 text-3xl">.</span>
-            </a>
-          </span>
-        </div>
+        <span className="text-2xl font-thin tracking-wider">
+          <a href="/">
+            ScaffoldX<span className="text-emerald-400 text-3xl">.</span>
+          </a>
+        </span>
       </div>
       
-      <div className="absolute left-1/2 transform -translate-x-1/2">
+      {/* Mobile Search Toggle */}
+      <div className="sm:hidden">
+        <button 
+          onClick={() => {
+            // Implement mobile search modal/overlay logic
+            // You might want to add a state to control mobile search visibility
+          }}
+          className="text-gray-400 hover:text-white"
+        >
+          <Search className="w-5 h-5" />
+        </button>
+      </div>
+      
+      {/* Desktop Search */}
+      <div className="hidden sm:block absolute left-1/2 transform -translate-x-1/2">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input
@@ -218,18 +230,37 @@ const Dashboard = () => {
       </div>
       
       <div className="flex items-center space-x-4">
+        {/* Notifications */}
         <button className="relative">
           <Bell className="w-5 h-5 text-gray-400 hover:text-emerald-400 transition-colors" />
           <span className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-400 rounded-full" />
         </button>
+        
+        {/* User Profile */}
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 rounded-full bg-emerald-400/20 flex items-center justify-center">
             <span className="text-sm text-emerald-400">AK</span>
           </div>
-          <ChevronDown className="w-4 h-4 text-gray-400" />
+          <ChevronDown className="w-4 h-4 text-gray-400 sm:block hidden" />
         </div>
       </div>
     </div>
+    
+    {/* Mobile Search Overlay (Optional - you can implement this if needed) */}
+    {/* {isMobileSearchOpen && (
+      <div className="sm:hidden absolute top-full left-0 right-0 bg-black/90 p-4">
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <input
+            type="text"
+            placeholder="Search..."
+            className="w-full bg-gray-900/50 border border-gray-800 rounded-md pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-emerald-400/50"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
+      </div>
+    )} */}
   </div>
 </nav>
 
